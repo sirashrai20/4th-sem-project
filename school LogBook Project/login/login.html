@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <div id="semesterDropdown" style="display: none;">
+                <select name="semester" id="semesterSelect">
+                    <option value="" disabled selected>Select Semester</option>
+                    <option value="1">1st Semester</option>
+                    <option value="2">2nd Semester</option>
+                    <option value="3">3rd Semester</option>
+                    <option value="4">4th Semester</option>
+                    <option value="5">5th Semester</option>
+                    <option value="6">6th Semester</option>
+                    <option value="7">7th Semester</option>
+                    <option value="8">8th Semester</option>
+                </select>
+            </div>
+            <label for="userType">User Type:</label>
+            <select id="userType" name="userType" onchange="showSemesterDropdown()">
+                <option value="admin">Admin</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+            <button type="submit">Login</button>
+            <a href="create/create.html"><button type="button">Create Account</button></a>
+        </form>
+    </div>
+
+    <script>
+        function showSemesterDropdown() {
+            var userType = document.getElementById("userType").value;
+            var semesterDropdown = document.getElementById("semesterDropdown");
+
+            if (userType === "student") {
+                semesterDropdown.style.display = "block";
+            } else {
+                semesterDropdown.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
